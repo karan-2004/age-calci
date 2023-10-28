@@ -72,7 +72,7 @@ const App = {
         let birthMonth = birthdate.getMonth();
         let currentMonth = current.getMonth();
         // console.log(currentMonth, birthMonth)
-        if (currentMonth > birthMonth){
+        if (currentMonth >= birthMonth){
             totalDays = months.slice(birthMonth, currentMonth).reduce((a,b)=>a+b, 0);
             monthsCount = months.slice(birthMonth, currentMonth).length; 
         }else{
