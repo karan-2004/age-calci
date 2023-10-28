@@ -1,0 +1,100 @@
+@font-face {
+    font-family: Poppins;
+    src: url(assets/fonts/Poppins-ExtraBoldItalic.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 32px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: hsl(0, 1%, 44%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    height: 10%;
+    aspect-ratio: 1/1;
+    position: absolute;
+    background-color: hsl(259, 100%, 65%);
+    background-image: url(./assets/images/icon-arrow.svg);
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    left: 45%;
+    top: 35%; 
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: black;
+}
+
+input {
+    width: 100%;
+    height: 50%;
+    padding: 5%;
+    font-size: .6rem;
+    outline: none;
+    border-color: black;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+label {
+    font-size: .5rem;
+}
+
+.container {
+    position: relative;
+    width: 90%;
+    height: 80%;
+    background-color: white;
+    padding: 5%;
+    border-radius: 5% 5% 35% 5%;    
+}
+
+.field {
+    display: flex;
+    justify-content: space-between;
+    margin: 5%;
+    height: 30%;
+    width: 90%;
+}
+
+.fields {
+    height: 75%;
+    width: 30%;
+}
+
+.out {
+    height: 60%;
+    width: 90%;
+    padding: 1%;
+    padding-top: 15%;
+    font-size: 1rem;
+    font-family: Poppins;
+    font-weight: 800;
+    font-style: italic;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.outs {
+    color: hsl(259, 100%, 65%);
+    font-size: 1.2rem;
+}
+
+
+
