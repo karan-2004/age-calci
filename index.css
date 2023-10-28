@@ -20,7 +20,7 @@ body {
 }
 
 button {
-    height: 10%;
+    height: 50px;
     aspect-ratio: 1/1;
     position: absolute;
     background-color: hsl(259, 100%, 65%);
@@ -30,7 +30,7 @@ button {
     background-repeat: no-repeat;
     border-radius: 50%;
     left: 45%;
-    top: 35%; 
+    top: -25px;
     border: none;
     cursor: pointer;
 }
@@ -57,10 +57,14 @@ label {
 .container {
     position: relative;
     width: 90%;
-    height: 80%;
+    height: 60%;
     background-color: white;
     padding: 5%;
     border-radius: 5% 5% 35% 5%;    
+}
+
+.hr {
+    position: relative;
 }
 
 .field {
