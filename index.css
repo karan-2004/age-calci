@@ -73,6 +73,7 @@ label {
 }
 
 .field {
+    color: hsl(0, 1%, 44%);
     display: flex;
     justify-content: space-between;
     margin: 5%;
@@ -128,5 +129,50 @@ label {
     border: 1px solid green;
 }
 
+
+@media(min-width:376px){
+
+    .container {
+        width: 50%;
+        aspect-ratio: 1/1;
+        padding: 2%;
+    }
+
+    .out {
+        padding-top: 5%;
+        padding-left: 5%;
+    }
+
+    .out p{
+        font-size: 2rem;
+    }
+
+    .msg p {
+        font-size: .8rem;
+    }
+
+    .outs {
+        font-size: 2.3rem;
+    }
+
+    .fields label {
+        font-size: .8rem;
+        font-weight: 700;
+    }
+
+    .fields input {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-top: 5%;
+    }
+
+    button {
+        left: 80%;
+        top: -45px;
+        height: 90px;
+    }
+
+
+}
 
 

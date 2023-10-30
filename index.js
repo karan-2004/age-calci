@@ -55,11 +55,13 @@ const App = {
             let indate = App.$.input[0].value;
             let inmonth = App.$.input[1].value;
             let inyear = App.$.input[2].value;
+            if(App.validateDate(indate) && App.validateMonth(inmonth) && App.validateYear(inyear)){
             // App.calculateAge(indate, inmonth, inyear);
-            const [years, months, days] = App.calculateAge(indate, inmonth, inyear);
-            App.$.year.innerHTML = years;
-            App.$.month.innerHTML = months;
-            App.$.date.innerHTML = days;
+                const [years, months, days] = App.calculateAge(indate, inmonth, inyear);
+                App.$.year.innerHTML = years;
+                App.$.month.innerHTML = months;
+                App.$.date.innerHTML = days;
+            }
         })
     },
 
