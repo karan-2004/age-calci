@@ -13,6 +13,44 @@ const App = {
     },
 
     registerEventListeners() {
+
+        App.$.input[0].addEventListener('keyup', function(e){
+            let date = this.value;
+            if(App.validateDate(date)){
+                this.classList.add('success');
+                App.$.input[0].nextElementSibling.innerHTML = '';
+                if(date.length == 2){
+                    console.log(date);
+                    App.$.input[1].focus(); 
+                }
+                this.classList.remove('error');
+            }
+        })
+
+        App.$.input[1].addEventListener('keyup', function(e){
+            let month = this.value;
+            if(App.validateMonth(month)){
+                this.classList.add('success');
+                App.$.input[1].nextElementSibling.innerHTML = '';
+                if(month.length == 2){
+                    console.log(date);
+                    App.$.input[2].focus(); 
+                }
+                this.classList.remove('error');
+            }
+        })
+
+        App.$.input[2].addEventListener('keyup', function(e){
+            let year = this.value;
+            if(App.validateYear(year)){
+                this.classList.add('success');
+                App.$.input[2].nextElementSibling.innerHTML = '';
+                this.classList.remove('error');
+            }
+        })
+
+
+
         App.$.button.addEventListener('click', function(){
             let indate = App.$.input[0].value;
             let inmonth = App.$.input[1].value;
@@ -87,7 +125,75 @@ const App = {
             daysRem += months[currentMonth];
         }
         return [monthsCount, daysRem];
+    },
+    validateDate(inp, month = 0){
+        let months = [31,28,31,30,31,30,31,31,30,31,30,31];
+        if (inp == ''){
+            App.$.input[0].classList.remove('success');
+            App.$.input[0].classList.add('error');
+            return false;                        
+        }
+        date = parseInt(inp);
+        if (date < 0 || date > months[month]){ 
+            App.$.input[0].classList.remove('success');
+            App.$.input[0].classList.add('error');
+            App.$.input[0].nextElementSibling.innerHTML = '<p>invalid date</p>';
+            return false;
+        }
+        return true;
+    },
+
+    validateMonth(inp, thisMonth = 12){
+        if (inp == ''){
+            App.$.input[1].classList.remove('success');
+            App.$.input[1].classList.add('error');
+            return false;                        
+        }
+        month = parseInt(inp);
+        if (month < 0 || month  > thisMonth){ 
+            App.$.input[1].classList.remove('success');
+            App.$.input[1].classList.add('error');
+            App.$.input[1].nextElementSibling.innerHTML = '<p>invalid month</p>';
+            return false;
+        }
+        // this.validateDate(App.$.input[0].value, month-1);
+        if(this.validateDate(App.$.input[0].value, month-1)){
+            App.$.input[0].classList.add('success');
+            App.$.input[0].nextElementSibling.innerHTML = '';
+            App.$.input[0].classList.remove('error');
+        }
+        return true;
+    },
+
+    validateYear(inp){
+        if (inp == ''){
+            App.$.input[2].classList.remove('success');
+            App.$.input[2].classList.add('error');
+            return false;                        
+        }
+        year = parseInt(inp);
+        let now = new Date().getFullYear();
+        let thisMonth = new Date().getMonth();
+        if (year < 1900 || year  > now){ 
+            App.$.input[2].classList.remove('success');
+            App.$.input[2].classList.add('error');
+            App.$.input[2].nextElementSibling.innerHTML = '<p>invalid year</p>';
+            return false;
+        }
+        if (year == now){
+            // this.validateMonth(App.$.input[1].value, thisMonth);
+            this.validateMonth(App.$.input[1].value, thisMonth+1);
+        }else{
+            if(this.validateMonth(App.$.input[1].value)){
+                App.$.input[1].classList.add('success');
+                App.$.input[1].nextElementSibling.innerHTML = '';
+                App.$.input[1].classList.remove('error');
+            }
+        } 
+            
+        return true;
     }
+
 }
 
 window.addEventListener('load', App.init);
