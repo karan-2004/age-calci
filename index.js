@@ -20,7 +20,7 @@ const App = {
                 this.classList.add('success');
                 App.$.input[0].nextElementSibling.innerHTML = '';
                 if(date.length == 2){
-                    console.log(date);
+                    // console.log(date);
                     App.$.input[1].focus(); 
                 }
                 this.classList.remove('error');
@@ -33,7 +33,7 @@ const App = {
                 this.classList.add('success');
                 App.$.input[1].nextElementSibling.innerHTML = '';
                 if(month.length == 2){
-                    console.log(date);
+                    // console.log(date);
                     App.$.input[2].focus(); 
                 }
                 this.classList.remove('error');
