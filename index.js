@@ -55,7 +55,7 @@ const App = {
             let indate = App.$.input[0].value;
             let inmonth = App.$.input[1].value;
             let inyear = App.$.input[2].value;
-            if(App.validateDate(indate) && App.validateMonth(inmonth) && App.validateYear(inyear)){
+            if(App.validateDate(indate, inmonth-1) && App.validateMonth(inmonth) && App.validateYear(inyear, (inyear == new Date().getFullYear())?new Date().getMonth()+1:12)){
             // App.calculateAge(indate, inmonth, inyear);
                 const [years, months, days] = App.calculateAge(indate, inmonth, inyear);
                 App.$.year.innerHTML = years;
